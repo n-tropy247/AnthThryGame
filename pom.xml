@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.duckdns.raymanriley</groupId>
+    <artifactId>AnthThryGame</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <exec.mainClass>org.duckdns.raymanriley.anththrygame.AnthThryGame</exec.mainClass>
+    </properties>
+    <name>Anthropological Theory Game</name>
+    <description>A short visual experience emphasizing the different between
+Tylor's Unilineal Evolution and Boasian Historical Relativism</description>
+</project>
