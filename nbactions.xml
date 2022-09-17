@@ -60,6 +60,9 @@
             <goals>
                 <goal>clean</goal>
                 <goal>install</goal>
+                <goal>site</goal>
+                <goal>site:stage</goal>
+                <goal>scm-publish:publish-scm</goal>
             </goals>
         </action>
     </actions>
