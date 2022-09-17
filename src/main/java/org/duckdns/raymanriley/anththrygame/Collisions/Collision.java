@@ -17,38 +17,37 @@
 package org.duckdns.raymanriley.anththrygame.Collisions;
 
 /**
+ * Object created when a collision happens to easily track direction.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class Collision {
 
-    public enum Direction {
-        Left, Right, Up, Down
-    }
+  public enum Direction {
+    Left,
+    Right,
+    Up,
+    Down
+  }
 
-    private final Direction dir;
+  private final Direction dir;
 
-    public Collision(Direction dir) {
-        this.dir = dir;
-    }
+  public Collision(Direction dir) {
+    this.dir = dir;
+  }
 
-    public Direction getDir() {
-        return dir;
-    }
+  public Direction getDir() {
+    return dir;
+  }
 
-    public Direction getInverseDir() {
-        switch (dir) {
-            case Left:
-                return Direction.Right;
-            case Right:
-                return Direction.Left;
-            case Up:
-                return Direction.Down;
-            default:
-                return Direction.Up;
-        }
-    }
-
+  public Direction getInverseDir() {
+    return switch (dir) {
+      case Left -> Direction.Right;
+      case Right -> Direction.Left;
+      case Up -> Direction.Down;
+      default -> Direction.Up;
+    };
+  }
 }

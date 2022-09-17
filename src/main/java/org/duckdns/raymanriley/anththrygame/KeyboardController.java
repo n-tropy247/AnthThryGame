@@ -20,52 +20,37 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
+ * Tracks keyboard state changes and commands entity.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class KeyboardController extends KeyAdapter {
-    
-    private AvatarEntity avatar;
-    
-    public KeyboardController(AvatarEntity avatar) {
-        this.avatar = avatar;
-    }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        switch(e.getKeyCode()) {
-            case KeyEvent.VK_A:
-                avatar.handleLeft();
-                break;
-            case KeyEvent.VK_D:
-                avatar.handleRight();
-                break;
-            case KeyEvent.VK_S:
-                avatar.handleDown();
-                break;
-            case KeyEvent.VK_W:
-                avatar.handleUp();
-                break;
-        }
+  private final AvatarEntity avatar;
+
+  public KeyboardController(AvatarEntity avatar) {
+    this.avatar = avatar;
+  }
+
+  @Override
+  public void keyPressed(KeyEvent e) {
+    switch (e.getKeyCode()) {
+      case KeyEvent.VK_A -> avatar.handleLeft();
+      case KeyEvent.VK_D -> avatar.handleRight();
+      case KeyEvent.VK_S -> avatar.handleDown();
+      case KeyEvent.VK_W -> avatar.handleUp();
     }
-    
-    @Override
-    public void keyReleased(KeyEvent e) {
-        switch(e.getKeyCode()) {
-            case KeyEvent.VK_A:
-                avatar.handleLeftRelease();
-                break;
-            case KeyEvent.VK_D:
-                avatar.handleRightRelease();
-                break;
-            case KeyEvent.VK_S:
-                avatar.handleDownRelease();
-                break;
-            case KeyEvent.VK_W:
-                avatar.handleUpRelease();
-                break;
-        }
+  }
+
+  @Override
+  public void keyReleased(KeyEvent e) {
+    switch (e.getKeyCode()) {
+      case KeyEvent.VK_A -> avatar.handleLeftRelease();
+      case KeyEvent.VK_D -> avatar.handleRightRelease();
+      case KeyEvent.VK_S -> avatar.handleDownRelease();
+      case KeyEvent.VK_W -> avatar.handleUpRelease();
     }
+  }
 }

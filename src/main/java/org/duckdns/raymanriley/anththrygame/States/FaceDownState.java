@@ -20,46 +20,47 @@ import org.duckdns.raymanriley.anththrygame.AvatarEntity;
 import org.duckdns.raymanriley.anththrygame.Geometry.Vector2;
 
 /**
+ * State for facing downward. Default starting state.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class FaceDownState extends BaseState {
 
-    public FaceDownState(AvatarEntity avatar) {
-        super(avatar);
-        avatar.setVelocity(new Vector2(0, 0));
-        avatar.setMoving(false);
-    }
+  public FaceDownState(AvatarEntity avatar) {
+    super(avatar);
+    avatar.setVelocity(new Vector2(0, 0));
+    avatar.setMoving(false);
+  }
 
-    @Override
-    public void handleLeft() {
-        super.moveLeft();
-    }
+  @Override
+  public void handleLeft() {
+    super.moveLeft();
+  }
 
-    @Override
-    public void handleRight() {
-        //TODO move right
-    }
+  @Override
+  public void handleRight() {
+    // TODO move right
+  }
 
-    @Override
-    public void handleUp() {
-        //TODO move up
-    }
+  @Override
+  public void handleUp() {
+    // TODO move up
+  }
 
-    @Override
-    public void handleDown() {
-        //TODO move down
-    }
+  @Override
+  public void handleDown() {
+    // TODO move down
+  }
 
-    @Override
-    public void update(double time) {
-        avatar.setVelocity(new Vector2(0, 0));
-    }
-    
-    @Override
-    public void loadSprite() {
-        avatar.loadSprite(AvatarEntity.Face.Down);
-    }
+  @Override
+  public void update(double time) {
+    avatar.setVelocity(new Vector2(0, 0));
+  }
+
+  @Override
+  public void loadSprite() {
+    avatar.loadSprite(AvatarEntity.Face.Down);
+  }
 }

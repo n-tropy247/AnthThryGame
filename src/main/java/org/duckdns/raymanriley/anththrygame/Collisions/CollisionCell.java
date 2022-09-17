@@ -24,41 +24,42 @@ import org.duckdns.raymanriley.anththrygame.Sprite;
 import org.duckdns.raymanriley.anththrygame.Geometry.Vector2;
 
 /**
+ * Unit to break up game space into cells for broad-phase collision detection.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class CollisionCell {
 
-    private final Rectangle cell;
+  private final Rectangle cell;
 
-    private final List<Sprite> sprites = new ArrayList<>();
+  private final List<Sprite> sprites = new ArrayList<>();
 
-    public CollisionCell(Vector2 pos, double width, double height) {
-        cell = new Rectangle(pos, width, height);
+  public CollisionCell(Vector2 pos, double width, double height) {
+    cell = new Rectangle(pos, width, height);
+  }
+
+  public List<Sprite> getSprites() {
+    return Collections.unmodifiableList(sprites);
+  }
+
+  public Vector2 getPos() {
+    return cell.getPos();
+  }
+
+  public Vector2 getBounds() {
+    return cell.getBounds();
+  }
+
+  public void addSprite(Sprite sprite) {
+    sprites.add(sprite);
+    sprite.addToCell(this);
+  }
+
+  public void removeFromCell(Sprite sprite) {
+    if (sprites.contains(sprite)) {
+      sprites.remove(sprite);
     }
-
-    public List<Sprite> getSprites() {
-        return Collections.unmodifiableList(sprites);
-    }
-
-    public Vector2 getPos() {
-        return cell.getPos();
-    }
-
-    public Vector2 getBounds() {
-        return cell.getBounds();
-    }
-
-    public void addSprite(Sprite sprite) {
-        sprites.add(sprite);
-        sprite.addToCell(this);
-    }
-
-    public void removeFromCell(Sprite sprite) {
-        if (sprites.contains(sprite)) {
-            sprites.remove(sprite);
-        }
-    }
+  }
 }

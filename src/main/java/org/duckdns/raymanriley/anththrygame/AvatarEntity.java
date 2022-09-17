@@ -21,85 +21,93 @@ import org.duckdns.raymanriley.anththrygame.Geometry.Vector2;
 import org.duckdns.raymanriley.anththrygame.States.*;
 
 /**
+ * The primary class for the controllable game entity. Has a State and a Sprite.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class AvatarEntity {
-    
-    public enum Face {
-        Left, Right, Up, Down, LeftUp, LeftDown, RightUp, RightDown
-    }
 
-    private BaseState state;
+  public enum Face {
+    Left,
+    Right,
+    Up,
+    Down,
+    LeftUp,
+    LeftDown,
+    RightUp,
+    RightDown
+  }
 
-    private Sprite sprite;
-    
-    private boolean isMoving;
+  private BaseState state;
 
-    public AvatarEntity(Vector2 pos, Sprite sprite) {
-        state = new FaceDownState(this);
-        isMoving = false;
-        this.sprite = sprite;
-    }
+  private final Sprite sprite;
 
-    public void update(double time) {
-        sprite.update(time);
-    }
+  //  private boolean isMoving;
 
-    public void handleLeft() {
-        state.handleLeft();
-    }
+  public AvatarEntity(Vector2 pos, Sprite sprite) {
+    state = new FaceDownState(this);
+    //    isMoving = false;
+    this.sprite = sprite;
+  }
 
-    public void handleLeftRelease() {
-        state.handleLeftRelease();
-    }
+  public void update(double time) {
+    sprite.update(time);
+  }
 
-    public void handleRight() {
-        state.handleRight();
-    }
+  public void handleLeft() {
+    state.handleLeft();
+  }
 
-    public void handleRightRelease() {
-        state.handleRightRelease();
-    }
+  public void handleLeftRelease() {
+    state.handleLeftRelease();
+  }
 
-    public void handleUp() {
-        state.handleUp();
-    }
+  public void handleRight() {
+    state.handleRight();
+  }
 
-    public void handleUpRelease() {
-        state.handleUpRelease();
-    }
+  public void handleRightRelease() {
+    state.handleRightRelease();
+  }
 
-    public void handleDown() {
-        state.handleDown();
-    }
+  public void handleUp() {
+    state.handleUp();
+  }
 
-    public void handleDownRelease() {
-        state.handleDownRelease();
-    }
+  public void handleUpRelease() {
+    state.handleUpRelease();
+  }
 
-    public void setState(BaseState state) {
-        this.state = state;
-    }
+  public void handleDown() {
+    state.handleDown();
+  }
 
-    public void setVelocity(Vector2 velocity) {
-        sprite.setVelocity(velocity);
-    }
-    
-    public void setMoving(boolean moving) {
-        isMoving = moving;
-    }
-    
-    public void loadSprite(Face dir) {
-        switch(dir) {
-            //TODO create sprite factory
-        }
-    }
+  public void handleDownRelease() {
+    state.handleDownRelease();
+  }
 
-    public void handleCollision(Collision collision) {
-        sprite.handleCollision(collision);
-        state.handleCollision(collision);
+  public void setState(BaseState state) {
+    this.state = state;
+  }
+
+  public void setVelocity(Vector2 velocity) {
+    sprite.setVelocity(velocity);
+  }
+
+  public void setMoving(boolean moving) {
+    //    isMoving = moving;
+  }
+
+  public void loadSprite(Face dir) {
+    switch (dir) {
+        // TODO create sprite factory
     }
+  }
+
+  public void handleCollision(Collision collision) {
+    sprite.handleCollision(collision);
+    state.handleCollision(collision);
+  }
 }

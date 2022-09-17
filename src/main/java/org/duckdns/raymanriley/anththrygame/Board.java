@@ -19,37 +19,37 @@ package org.duckdns.raymanriley.anththrygame;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.util.ArrayList;
-import java.util.Timer;
-import javax.swing.ImageIcon;
+//import java.util.ArrayList;
+//import java.util.Timer;
 import javax.swing.JPanel;
 
 /**
+ * Main window container.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class Board extends JPanel {
 
     private final int B_WIDTH = 350, B_HEIGHT = 350;
-    private final int X_INIT = -40, Y_INIT = -40;
-    private final int DELAY_INIT = 100, PERIOD = 25;
-    private ArrayList<Sprite> sprites = new ArrayList<>();
-
-    private Timer timer;
+//    private final int X_INIT = -40, Y_INIT = -40;
+//    private final int DELAY_INIT = 100, PERIOD = 25;
+//    private ArrayList<Sprite> sprites = new ArrayList<>();
+//
+//    private Timer timer;
 
     public Board() {
         initBoard();
     }
 
     private void initBoard() {
-        setBackground(Color.GREEN);
         setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        setBackground(Color.GREEN);
     }
 
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 }

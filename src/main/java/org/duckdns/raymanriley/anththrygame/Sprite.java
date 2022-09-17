@@ -26,60 +26,62 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
+ * Holds the image for a sprite and currently handles motion physics. TODO move motion physics to
+ * entity.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class Sprite {
 
-    private final int S_WIDTH = 50;
-    private final int S_HEIGHT = 50;
+  private final int S_WIDTH = 50;
+  private final int S_HEIGHT = 50;
 
-    private final Image sprite;
-    private final List<CollisionCell> cells = new ArrayList<>();
-    private final Rectangle boundBox;
-    private Vector2 pos;
-    private Vector2 velocity;
+  private final Image sprite;
+  private final List<CollisionCell> cells = new ArrayList<>();
+  private final Rectangle boundBox;
+  private Vector2 pos;
+  private Vector2 velocity;
 
-    public Sprite(Vector2 pos, String imagePath) {
-        this.pos = new Vector2(pos);
-        velocity = new Vector2(0., 0.);
-        boundBox = new Rectangle(pos.getX(), pos.getY(),
-                S_WIDTH, S_HEIGHT);
-        sprite = new ImageIcon(imagePath).getImage();
-    }
+  public Sprite(Vector2 pos, String imagePath) {
+    this.pos = new Vector2(pos);
+    velocity = new Vector2(0., 0.);
+    boundBox = new Rectangle(pos.getX(), pos.getY(), S_WIDTH, S_HEIGHT);
+    sprite = new ImageIcon(imagePath).getImage();
+  }
 
-    public void addToCell(CollisionCell cell) {
-        cells.add(cell);
-    }
+  public void addToCell(CollisionCell cell) {
+    cells.add(cell);
+  }
 
-    public void removeAllCells() {
-        cells.forEach(c -> {
-            c.removeFromCell(this);
+  public void removeAllCells() {
+    cells.forEach(
+        c -> {
+          c.removeFromCell(this);
         });
-        cells.clear();
-    }
+    cells.clear();
+  }
 
-    public Vector2 getPos() {
-        return pos;
-    }
+  public Vector2 getPos() {
+    return pos;
+  }
 
-    public Rectangle getBoundBox() {
-        return boundBox;
-    }
+  public Rectangle getBoundBox() {
+    return boundBox;
+  }
 
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = new Vector2(velocity);
-    }
+  public void setVelocity(Vector2 velocity) {
+    this.velocity = new Vector2(velocity);
+  }
 
-    public void update(double time) {
-        pos.setX(pos.getX() + velocity.getX() * time);
-        pos.setY(pos.getY() + velocity.getY() * time);
-        boundBox.setPos(pos);
-    }
+  public void update(double time) {
+    pos.setX(pos.getX() + velocity.getX() * time);
+    pos.setY(pos.getY() + velocity.getY() * time);
+    boundBox.setPos(pos);
+  }
 
-    public void handleCollision(Collision collision) {
-        //TODO collision logic
-    }
+  public void handleCollision(Collision collision) {
+    // TODO collision logic
+  }
 }

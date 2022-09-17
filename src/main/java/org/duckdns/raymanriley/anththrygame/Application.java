@@ -20,9 +20,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 /**
+ * Just adds the main container and executes.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class Application extends JFrame {

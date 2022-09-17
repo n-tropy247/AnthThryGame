@@ -20,36 +20,36 @@ import org.duckdns.raymanriley.anththrygame.AvatarEntity;
 import org.duckdns.raymanriley.anththrygame.Geometry.Vector2;
 
 /**
+ * State for moving to the left.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class LeftState extends BaseState {
 
-    public LeftState(AvatarEntity avatar) {
-        super(avatar);
-        avatar.setMoving(true);
-    }
+  public LeftState(AvatarEntity avatar) {
+    super(avatar);
+    avatar.setMoving(true);
+  }
 
-    @Override
-    public void handleUp() {
-        super.moveUpLeft();
-    }
+  @Override
+  public void handleUp() {
+    super.moveUpLeft();
+  }
 
-    @Override
-    public void handleLeftRelease() {
-        super.moveIdleLeft();
-    }
+  @Override
+  public void handleLeftRelease() {
+    super.moveIdleLeft();
+  }
 
-    @Override
-    public void update(double time) {
-        avatar.setVelocity(new Vector2(-50, 0));
-    }
-    
-    @Override
-    public void loadSprite() {
-        avatar.loadSprite(AvatarEntity.Face.Left);
-    }
+  @Override
+  public void update(double time) {
+    avatar.setVelocity(new Vector2(-50, 0));
+  }
 
+  @Override
+  public void loadSprite() {
+    avatar.loadSprite(AvatarEntity.Face.Left);
+  }
 }

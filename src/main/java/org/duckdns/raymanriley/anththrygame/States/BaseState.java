@@ -18,65 +18,53 @@ package org.duckdns.raymanriley.anththrygame.States;
 
 import org.duckdns.raymanriley.anththrygame.AvatarEntity;
 import org.duckdns.raymanriley.anththrygame.Collisions.Collision;
-import org.duckdns.raymanriley.anththrygame.Sprite;
 
 /**
+ * Contains virtual methods to provide easy do-nothing decisions.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public abstract class BaseState {
 
-    protected AvatarEntity avatar;
+  protected AvatarEntity avatar;
 
-    public BaseState(AvatarEntity avatar) {
-        this.avatar = avatar;
-    }
+  public BaseState(AvatarEntity avatar) {
+    this.avatar = avatar;
+  }
 
-    public void update(double time) {
-    }
+  public void update(double time) {}
 
-    public void handleLeft() {
-    }
+  public void handleLeft() {}
 
-    public void handleLeftRelease() {
-    }
+  public void handleLeftRelease() {}
 
-    public void handleRight() {
-    }
+  public void handleRight() {}
 
-    public void handleRightRelease() {
-    }
+  public void handleRightRelease() {}
 
-    public void handleUp() {
-    }
+  public void handleUp() {}
 
-    public void handleUpRelease() {
-    }
+  public void handleUpRelease() {}
 
-    public void handleDown() {
-    }
+  public void handleDown() {}
 
-    public void handleDownRelease() {
-    }
+  public void handleDownRelease() {}
 
-    public void loadSprite() {
-    }
+  public void loadSprite() {}
 
-    public void moveLeft() {
-        avatar.setState(new LeftState(avatar));
-    }
+  public void moveLeft() {
+    avatar.setState(new LeftState(avatar));
+  }
 
-    public void moveUpLeft() {
-    }
+  public void moveUpLeft() {}
 
-    public void moveIdleLeft() {
-        //TODO face left state
-    }
+  public void moveIdleLeft() {
+    // TODO face left state
+  }
 
-    public void handleCollision(Collision collision) {
-        //TODO collision stuff
-    }
-
+  public void handleCollision(Collision collision) {
+    // TODO collision stuff
+  }
 }

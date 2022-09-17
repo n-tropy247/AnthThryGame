@@ -17,53 +17,52 @@
 package org.duckdns.raymanriley.anththrygame.Geometry;
 
 /**
+ * Rectangle utility class with intersection detection.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class Rectangle {
 
-    private final Vector2 bounds;
-    private final Vector2 pos;
+  private final Vector2 bounds;
+  private final Vector2 pos;
 
-    public Rectangle(double x, double y, double width, double height) {
-        pos = new Vector2(x, y);
-        bounds = new Vector2(width, height);
-    }
+  public Rectangle(double x, double y, double width, double height) {
+    pos = new Vector2(x, y);
+    bounds = new Vector2(width, height);
+  }
 
-    public Rectangle(Vector2 pos, double width, double height) {
-        this.pos = new Vector2(pos);
-        bounds = new Vector2(width, height);
-    }
+  public Rectangle(Vector2 pos, double width, double height) {
+    this.pos = new Vector2(pos);
+    bounds = new Vector2(width, height);
+  }
 
-    public Vector2 getPos() {
-        return pos;
-    }
+  public Vector2 getPos() {
+    return pos;
+  }
 
-    public Vector2 getBounds() {
-        return bounds;
-    }
+  public Vector2 getBounds() {
+    return bounds;
+  }
 
-    public void setPos(Vector2 pos) {
-        this.pos.setX(pos.getX());
-        this.pos.setY(pos.getY());
-    }
+  public void setPos(Vector2 pos) {
+    this.pos.setX(pos.getX());
+    this.pos.setY(pos.getY());
+  }
 
-    public boolean intersects(Rectangle r) {
-        Vector2 aPos = this.getPos();
-        Vector2 aBounds = this.getBounds();
-        Vector2 bPos = r.getPos();
-        Vector2 bBounds = this.getBounds();
+  public boolean intersects(Rectangle r) {
+    Vector2 aPos = this.getPos();
+    Vector2 aBounds = this.getBounds();
+    Vector2 bPos = r.getPos();
+    Vector2 bBounds = this.getBounds();
 
-        //calculate zone of intersection
-        double x1 = Math.max(aPos.getX(), bPos.getX());
-        double x2 = Math.min(aPos.getX() + aBounds.getX(), bPos.getX()
-                + bBounds.getX());
-        double y1 = Math.max(aPos.getY(), bPos.getY());
-        double y2 = Math.min(aPos.getY() + aBounds.getY(), bPos.getY()
-                + bBounds.getY());
+    // calculate zone of intersection
+    double leftOverlap = Math.max(aPos.getX(), bPos.getX());
+    double rightOverlap = Math.min(aPos.getX() + aBounds.getX(), bPos.getX() + bBounds.getX());
+    double downOverlap = Math.max(aPos.getY(), bPos.getY());
+    double upOverlap = Math.min(aPos.getY() + aBounds.getY(), bPos.getY() + bBounds.getY());
 
-        return x2 >= x1 && y2 >= y1;
-    }
+    return rightOverlap >= leftOverlap && upOverlap >= downOverlap;
+  }
 }

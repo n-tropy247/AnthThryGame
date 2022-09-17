@@ -17,38 +17,39 @@
 package org.duckdns.raymanriley.anththrygame.Geometry;
 
 /**
+ * Base implementation of 2D vector.
  *
  * @author Riley Castelli
- * @version 2022.09.14
+ * @version 2022.09.17
  * @since 2022.09.14
  */
 public class Vector2 {
 
-    private double x, y;
+  private double x, y;
 
-    public Vector2(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
-    
-    public Vector2(Vector2 v) {
-        this.x = v.getX();
-        this.y = v.getY();
-    }
-    
-    public double getX() {
-        return x;
-    }
-    
-    public double getY() {
-        return y;
-    }
-    
-    public void setX(double x) {
-        this.x = x;
-    }
-    
-    public void setY(double y) {
-        this.y = y;
-    }
+  public Vector2(double x, double y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  public Vector2(Vector2 v) {
+    this.x = v.getX();
+    this.y = v.getY();
+  }
+
+  public double getX() {
+    return x;
+  }
+
+  public double getY() {
+    return y;
+  }
+
+  public void setX(double x) {
+    this.x = x;
+  }
+
+  public void setY(double y) {
+    this.y = y;
+  }
 }
